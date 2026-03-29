@@ -274,7 +274,7 @@ class Responder:
         Called by a server to deserialize a request, compute and serialize
         a response or error. Compare to 'handle()' in Thrift.
         """
-        buffer_reader = io.BytesIO(call_request)
+        buffer_reader = io.BytesIO(call_request.read())
         buffer_decoder = avro.io.BinaryDecoder(buffer_reader)
         buffer_writer = io.BytesIO()
         buffer_encoder = avro.io.BinaryEncoder(buffer_writer)
